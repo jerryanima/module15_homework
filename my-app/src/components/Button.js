@@ -1,5 +1,6 @@
 import React from 'react';
 import Title from './Title';
+import Time from './Time';
 
 class Button extends React.Component {
   constructor(props){
@@ -17,6 +18,7 @@ class Button extends React.Component {
     return (
       <div>
         <Title title={'123'}/>
+        <Time/>
         <button onClick={()=> this.setState({clicked: true})}>Click me</button>
       </div>
       )
