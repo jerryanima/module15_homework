@@ -1,12 +1,28 @@
 import React from 'react';
-import Title from './Title';
 import Time from './Time';
+import ErrorBoundry from './Error';
 
 class Button extends React.Component {
-  constructor(props){
+  state = {clicked: false, hasError: false}
+  /*constructor(props){
     super(props);
-    this.state = {clicked: false}
+    this.state = {clicked: false, hasError: false}
+    this.hadleClick = this.hadleClick.bind(this)
   }
+
+  hadleClick(){
+    this.setState(state => ({
+      clicked: true
+    }));
+  }*/
+  
+  hadleClick = (e) => {
+    console.log(e);
+    this.setState(state => ({
+      clicked: true
+    }));
+  }
+  
 
   render(){
     const { clicked } = this.state;
@@ -17,9 +33,10 @@ class Button extends React.Component {
 
     return (
       <div>
-        <Title title={'123'}/>
-        <Time/>
-        <button onClick={()=> this.setState({clicked: true})}>Click me</button>
+        <ErrorBoundry>
+          <Time/>
+        </ErrorBoundry>
+        <button onClick={e => this.hadleClick(e)}>Click me</button>
       </div>
       )
   }

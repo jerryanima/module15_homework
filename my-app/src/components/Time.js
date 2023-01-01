@@ -33,6 +33,10 @@ class Time extends React.Component{
 
     }
 
+    componentDidUpdate(prevProps) {
+        //выполняется какая то логика
+    }
+
     render(){
         const { date } = this.state;
         return <div>{date.toLocaleTimeString()}</div>
